@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="category_productsModelStoreContainer" CdmEntityContainer="category_productsEntities">
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="category_productsModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <ScalarProperty Name="c_date" ColumnName="c_date" />
+          <ScalarProperty Name="Mod_date" ColumnName="Mod_date" />
+          <ScalarProperty Name="pro_description" ColumnName="pro_description" />
+          <ScalarProperty Name="pro_image" ColumnName="pro_image" />
+          <ScalarProperty Name="quanitity" ColumnName="quanitity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="fk_tbl_category" ColumnName="fk_tbl_category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_category">
+      <EntityTypeMapping TypeName="category_productsModel.tbl_category">
+        <MappingFragment StoreEntitySet="tbl_category">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,57 @@
+﻿@model addcategory_product.Models.product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<DOCTYPE html>
+<html>
+<head>
+
+
+    <style>
+         .imagediv {
+             margin:5px;
+            height: 463px;
+            width: 254px;
+           
+
+        }
+        .price{
+             margin:5px;
+            height: 463px;
+            width: 254px;
+        }
+
+        .div{
+
+            display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <h2>Details</h2>
+
+
+    <div class="div">
+        <div class="imagediv">
+            <img src="@Url.Content(Model.pro_image)" alt="Image" class="img-responsive imagediv" />
+        </div>
+
+        <div class="price">
+            <p>@Html.DisplayFor(model => model.pro_name)</p>
+            <p>@Html.DisplayFor(model => model.price)</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+

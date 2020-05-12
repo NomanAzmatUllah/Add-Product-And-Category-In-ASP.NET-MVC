@@ -1,0 +1,22 @@
+﻿@model addcategory_product.Models.tbl_category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Details-Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_name)
+        </dd>
+
+    </dl>
+</div>

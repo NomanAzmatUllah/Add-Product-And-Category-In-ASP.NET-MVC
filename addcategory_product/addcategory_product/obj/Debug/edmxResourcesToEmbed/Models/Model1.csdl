@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="category_productsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="pro_id" />
+    </Key>
+    <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pro_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="c_date" Type="DateTime" Precision="3" />
+    <Property Name="Mod_date" Type="DateTime" Precision="3" />
+    <Property Name="pro_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pro_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="quanitity" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="fk_tbl_category" Type="Int32" />
+    <NavigationProperty Name="tbl_category" Relationship="Self.FK__product__fk_tbl___173876EA" FromRole="product" ToRole="tbl_category" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="products" Relationship="Self.FK__product__fk_tbl___173876EA" FromRole="tbl_category" ToRole="product" />
+  </EntityType>
+  <Association Name="FK__product__fk_tbl___173876EA">
+    <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="fk_tbl_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="category_productsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
+    <AssociationSet Name="FK__product__fk_tbl___173876EA" Association="Self.FK__product__fk_tbl___173876EA">
+      <End Role="tbl_category" EntitySet="tbl_category" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
